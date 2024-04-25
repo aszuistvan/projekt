@@ -1,0 +1,36 @@
+.customLink {
+    color: black;
+    font-family: 'Courier New';
+    font-size: 1.5em;
+}
+
+.customLink:hover {
+    color: rgb(72,140,129);
+    background: none;
+}
+
+.customLinkContainer {
+    justify-content: space-between;
+}
+.customLink:hover, .customLink:active, .customLink:focus {
+    background: none !important; /* Eltávolítja a háttérszínt */
+    outline: none !important; /* Eltávolítja a körvonalat */
+    box-shadow: none !important; /* Eltávolítja az árnyékot */
+    -webkit-tap-highlight-color: transparent !important; /* Eltávolítja a mobil böngészők alapértelmezett tap highlight színét */
+}
+.customLink:hover, .customLink:active, .customLink:focus {
+    background: none !important; /* Eltávolítja a háttérszínt */
+    outline: none !important; /* Eltávolítja a körvonalat */
+    box-shadow: none !important; /* Eltávolítja az árnyékot */
+    -webkit-tap-highlight-color: transparent !important; /* Eltávolítja a mobil böngészők alapértelmezett tap highlight színét */
+    color: rgb(72,140,129) !important; /* Megőrzi a betűszínt */
+}
+
+
+
+
+
+
+
+
+
