@@ -4,7 +4,7 @@ function Footer() {
     
   return (
 
-<footer class="bg-white dark:bg-gray-900 pb-4 px-4">
+<footer class="bg-white dark:bg-gray-900 pb-4 px-4 my-4 py-4 relative fixed top-4">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div class="flex justify-between gap-8 sm:gap-6">
               <div class="align-content-left text-xl">
@@ -60,7 +60,7 @@ function Footer() {
           </span>
           <span class="text-xl text-gray-500 sm:text-center dark:text-gray-400">Fast Restaurant <a href="https://flowbite.com/" class="hover:underline"></a>
           </span>
-          <div class="flex mt-4 sm:justify-center sm:mt-0">
+          <div class="flex mt-4 sm:justify-center sm:mt-0 ">
               <a href="https://www.facebook.com/profile.php?id=61552319677390" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                   <svg class="w-10 h-10" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
                         <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>

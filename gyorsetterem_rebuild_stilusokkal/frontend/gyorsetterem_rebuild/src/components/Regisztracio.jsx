@@ -67,10 +67,13 @@ function Regisztracio() {
     }
 
     return (
-        
-        <div className="registration-container" style={{ height: '100vh', display: 'flex', justifyContent: 'end', alignItems: 'center', marginRight: '0px'}}>
-          <div className="registration-form" style={{ width: '900px', padding: '20px', backgroundColor: '#fff', color: '#000', borderRadius: '6.5px', }}>
-            <h1 style={{ textAlign: 'center', marginBottom: '19px', fontSize: '25px', color: '#488c81', fontWeight: 'bold' }}>Fast Restaurant</h1>
+      <>
+        <div className="registration-form w-6/12 pt-9 bg-white text-black rounded-lg">
+
+        </div>
+        <div className="registration-container h-screen flex justify-end items-center mr-0">
+          <div className="registration-form fixed p-5 bg-white text-black rounded-lg">
+            <h1 className="text-center mb-5 text-2xl text-logozold font-bold">Fast Restaurant</h1>
             <form onSubmit={onSubmit}>
               <div className="flex flex-wrap -mx-2 justify-center">
               <div class="relative w-1/2 px-2 py-1">
@@ -134,16 +137,17 @@ function Regisztracio() {
               </div>
               </div>
               <br />
-              <button type="submit" onClick={jelszoEllenorzes} style={{ width: '100%', backgroundColor: '#ef9a95', color: '#fff' }}>Hozz létre egy fiókot</button>
+              <button type="submit" onClick={jelszoEllenorzes} className="w-full bg-logorozsaszin text-white">Hozz létre egy fiókot</button>
             </form>
-            <div style={{ textAlign: 'center', marginTop: '10px' }}>  
-              <a href="#" style={{ color: '#ef9a95' }}>Adatvédelem</a> | <a href="#" style={{ color: '#ef9a95' }}>Feltételek</a>
+            <div className="text-center mt-2">  
+              <a href="#" className="text-logorozsaszin">Adatvédelem</a> | <a href="#" className="text-logorozsaszin">Feltételek</a>
             </div>
-            <div style={{ textAlign: 'center', marginTop: '10px', color: '#488c81'}}>
-              <span>Már van regisztrált fiókod? <a href="/bejelentkezes" style={{ color: '#ef9a95' }}>Bejelentkezés</a></span>
+            <div className="text-center mt-2 text-logozold">
+              <span>Már van regisztrált fiókod? <a href="/bejelentkezes" className="text-logorozsaszin">Bejelentkezés</a></span>
             </div>
           </div>
         </div>
+        </>
 )
 }
 
