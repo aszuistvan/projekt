@@ -4,7 +4,7 @@ function Footer() {
     
   return (
 
-<footer class="bg-white dark:bg-gray-900 pb-4 px-4 my-4 py-4 relative fixed top-4">
+<footer class="bg-white dark:bg-gray-900 py-4 relative fixed top-4">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div class="flex justify-between gap-8 sm:gap-6">
               <div class="align-content-left text-xl">

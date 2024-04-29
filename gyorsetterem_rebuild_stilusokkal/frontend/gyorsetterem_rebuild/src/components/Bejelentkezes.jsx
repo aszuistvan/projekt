@@ -19,7 +19,7 @@ const Bejelentkezes = () => {
       <div className="registration-form w-6/12 pt-9 bg-white text-black rounded-lg">
         <img src={bejelentkezes_kep} alt="xd" className="justify-start" />
       </div>
-      <div className="registration-form w-1/2 max-w-none p-5 bg-white text-black rounded-lg text-center">
+      <div className="registration-form w-1/2 max-w-none bg-white text-black text-center">
           <h1 className="text-center mb-5 text-5xl text-logozold font-bold">Fast Restaurant</h1>
           <form onSubmit={handleBejelentkezes} className="flex justify-center">
           <div className="flex-col-1 -mx-2 justify-center">

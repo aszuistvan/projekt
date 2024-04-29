@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const FelhasznaloContext = createContext();
 
 export const FelhasznaloProvider=({children})=>{
-    const[felhasznalo, setFelhasznalo] = useState([]);
+    const[felhasznalok, setFelhasznalo] = useState([]);
     const[refresh, setRefresh] = useState(false);
     const navigate = useNavigate();
 
@@ -37,29 +37,30 @@ export const FelhasznaloProvider=({children})=>{
     }
 
     const adatkuldes = async(formData)=>{
-        const keres = await fetch(`http://localhost:8000/api/felhasznalok/regisztracio`,{
+        const response = await fetch(`http://localhost:8000/api/felhasznalok/regisztracio`,{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(formData)
         });
-        const valasz = await keres.text();
+        const valasz = await response.text();
         update();
     }
+    
 
-    const adatfelvitel = async(id, formData)=>{
-        const keres = await fetch(`http://localhost:8000/api/felhasznalok/`,{
+    const adatfelvitel = async(url, method, formData)=>{
+        const response = await fetch(url,{
             method: method,
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(formData)
         });
-        const valasz = await keres.text();
+        const valasz = await response.text();
         update();
     }
 
     useEffect(()=>{
         fetch(`http://localhost:8000/api/felhasznalok/regisztracio`)
        .then(res=>res.json())
-       .then(felhasznalok=>setFelhasznalo(felhasznalok))
+       .then(felhasznalok=>setFelhasznalok(felhasznalok))
        .catch(err=>console.log(err));
     }, [refresh]);
 
@@ -73,7 +74,7 @@ export const FelhasznaloProvider=({children})=>{
         update();
     }
 
-    return <FelhasznaloContext.Provider value={{felhasznalo, ujFelhasznalo, bejelentkezes, update, adatkuldes, adatfelvitel, backendMuvelet}}>{children}</FelhasznaloContext.Provider>
+    return <FelhasznaloContext.Provider value={{felhasznalok, ujFelhasznalo, bejelentkezes, update, adatkuldes, adatfelvitel, backendMuvelet}}>{children}</FelhasznaloContext.Provider>
 }
 
 export default FelhasznaloContext;

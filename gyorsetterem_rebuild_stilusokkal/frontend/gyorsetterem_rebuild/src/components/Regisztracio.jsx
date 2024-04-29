@@ -1,19 +1,19 @@
 import { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FelhasznaloContext from "../context/FelhasznaloContext";
+import regisztracio from '../assets/regisztracio.jpg'
 
 function Regisztracio() {
     const navigate = useNavigate();
     const{adatfelvitel, ujFelhasznalo} = useContext(FelhasznaloContext);
     const{state} = useLocation();
-    const {jelszo2, setJelszo2} = useState('');
 
-    let method = 'POST';
-    let url = `http://localhost:8000/api/felhasznalok`;
+    let method = "POST";
+    let url = `http://localhost:8000/api/felhasznalok/regisztracio`;
     let formObj = {};
 
     if(state != null){
-        method = 'PATCH';
+        method = "PATCH";
         const{felhasznalo} = state;
         url = `http://localhost:8000/api/felhasznalok/${felhasznalo.id}`;
         formObj = {
@@ -42,7 +42,7 @@ function Regisztracio() {
             tel_szam : "",
             felhasznalo_nev : "",
             jelszo : "",
-            email_cim : "",
+            email_cim : ""
         }
     }
 
@@ -53,28 +53,21 @@ function Regisztracio() {
     }
 
     const onSubmit = (e) => {
+        console.log(formData);
         e.preventDefault();
         adatfelvitel(url, method, formData);
-        navigate('/felhasznalok');
-    }
-
-    const jelszoEllenorzes = (e) => {
-      if (formData.jelszo !== jelszo2) {
-        alert('A jelszavak nem egyeznek meg!');
-      } else {
-        alert('Sikeres regisztráció!')
-      }
+        navigate('/regisztracio');
     }
 
     return (
       <>
-        <div className="registration-form w-6/12 pt-9 bg-white text-black rounded-lg">
-
-        </div>
-        <div className="registration-container h-screen flex justify-end items-center mr-0">
-          <div className="registration-form fixed p-5 bg-white text-black rounded-lg">
+        <div className="registration-container h-screen flex items-center bg-white justify-between mr-0 ">
+          <div className="registration-form w-6/12 bg-white text-black rounded-lg">
+            <img src={regisztracio} alt="xd" className="justify-start" />
+          </div>
+          <div className="registration-form w-1/2 max-w-none p-5 bg-white text-black rounded-lg text-center">
             <h1 className="text-center mb-5 text-2xl text-logozold font-bold">Fast Restaurant</h1>
-            <form onSubmit={onSubmit}>
+            <form method="post" onSubmit={onSubmit}>
               <div className="flex flex-wrap -mx-2 justify-center">
               <div class="relative w-1/2 px-2 py-1">
                 <input type="text" id="vnev" required value={formData.vnev} onChange={writeFormData} class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-logozold bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-logozold dark:border-gray-600 dark:focus:border-logozold focus:outline-none focus:ring-0 focus:border-logozold peer border-2 border-gray-300" placeholder=" " />
@@ -133,11 +126,11 @@ function Regisztracio() {
               <br />
               <div class="relative w-1/2 px-2 py-1">
                 <input type="text" id="jelszo"  onChange={writeFormData} class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-logozold bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-logozold dark:border-gray-600 dark:focus:border-logozold focus:outline-none focus:ring-0 focus:border-logozold peer border-2 border-gray-300" placeholder=" " />
-                <label for="floating_outlined" onChange={setJelszo2} class="absolute text-sm text-logozold dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-white px-2 peer-focus:px-2 peer-focus:text-logozold peer-focus:dark:text-logozold peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-4 ">Jelszó újra</label>
+                <label for="floating_outlined" class="absolute text-sm text-logozold dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-white px-2 peer-focus:px-2 peer-focus:text-logozold peer-focus:dark:text-logozold peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-4 ">Jelszó újra</label>
               </div>
               </div>
               <br />
-              <button type="submit" onClick={jelszoEllenorzes} className="w-full bg-logorozsaszin text-white">Hozz létre egy fiókot</button>
+              <button type="submit" className="w-full bg-logorozsaszin text-white">Hozz létre egy fiókot</button>
             </form>
             <div className="text-center mt-2">  
               <a href="#" className="text-logorozsaszin">Adatvédelem</a> | <a href="#" className="text-logorozsaszin">Feltételek</a>
