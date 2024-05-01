@@ -6,7 +6,7 @@ function TermekListaElem({termek}) {
     const handleDetailsClick = () => {setShowModal(true);}
 
     return(
-        <div style={{ backgroundColor: 'white', margin: '10px'}} className="card card-compact w-80 bg-base-700 shadow-xl">
+        <div className="card card-compact w-80 bg-white shadow-xl mt-5">
           <figure></figure>
           <div className="card-body">
             <h2 className="card-title">{termek.termek_neve}</h2>

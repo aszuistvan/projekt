@@ -4,7 +4,7 @@ import background from '../assets/fastfood_background.jpg';
 
 function Main() {
   return(
-    <div className="hero min-h-screen pt-2 bg-fill bg-no-repeat" style={{backgroundImage: `url(${background})`}}>
+    <div className="hero min-h-screen pt-2 bg-fill bg-cover" style={{backgroundImage: `url(${background})`}}>
     <div className="hero-content text-center">
       <div className="max-w-md text-lg font-mono">
       <div className="flex-1  items-center">

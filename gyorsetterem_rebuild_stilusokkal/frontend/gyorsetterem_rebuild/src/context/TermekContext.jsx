@@ -5,6 +5,7 @@ const TermekContext = createContext();
 
 export const TermekProvider=({children})=>{
     const[termekek, setTermekek] = useState([]);
+    const[italok, setItalok] = useState([]);
     const[refresh, setRefresh] = useState(false);
     const navigate = useNavigate();
 
@@ -13,6 +14,13 @@ export const TermekProvider=({children})=>{
         .then(res=>res.json())
         .then(termekek=>{setTermekek(termekek);console.log(termekek)})
         .catch(err=>console.log("A termékek fetchelése nem sikerült, hiba:", err));
+    }, [refresh]);
+
+    useEffect(()=>{
+        fetch(`http://localhost:8000/api/termeklista/italok`)
+       .then(res=>res.json())
+       .then(italok=>{setItalok(italok);console.log(italok)})
+       .catch(err=>console.log("Az italok fetchelése sikertelen. Hiba:", err))
     }, [refresh]);
 
     const update=()=>{
@@ -29,7 +37,7 @@ export const TermekProvider=({children})=>{
         update();
         console.log(valasz);
     }
-    return <TermekContext.Provider value={{termekek, update, backendMuvelet}}>{children}</TermekContext.Provider>
+    return <TermekContext.Provider value={{termekek, italok, update, backendMuvelet}}>{children}</TermekContext.Provider>
 }
 
 export default TermekContext;

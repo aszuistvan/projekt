@@ -58,11 +58,18 @@ export const FelhasznaloProvider=({children})=>{
     }
 
     useEffect(()=>{
-        fetch(`http://localhost:8000/api/felhasznalok/regisztracio`)
+        fetch(`http://localhost:8000/api/felhasznalok/regisztracio`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({})
+        })
        .then(res=>res.json())
-       .then(felhasznalok=>setFelhasznalok(felhasznalok))
+       .then(felhasznalok=>setFelhasznalo(felhasznalok))
        .catch(err=>console.log(err));
     }, [refresh]);
+    
 
     const backendMuvelet = async(adat, method, url)=>{
         const response = await fetch(url,{
