@@ -5,6 +5,7 @@ const FelhasznaloContext = createContext();
 
 export const FelhasznaloProvider=({children})=>{
     const[felhasznalok, setFelhasznalo] = useState([]);
+    const[bejelentkezett, setBejelentkezett] = useState(true)
     const[refresh, setRefresh] = useState(false);
     const navigate = useNavigate();
 
@@ -13,7 +14,7 @@ export const FelhasznaloProvider=({children})=>{
     }
 
     const ujFelhasznalo = (felhasznalo) => {
-        setFelhasznalok([...felhasznalok, felhasznalo]);
+        setFelhasznalo([...felhasznalok, felhasznalo]);
     }
 
     const bejelentkezes = async (email, jelszo) => {
@@ -28,8 +29,10 @@ export const FelhasznaloProvider=({children})=>{
             } else {
                 const data = await response.json();
                 sessionStorage.setItem('usertoken', data.token);
+                setBejelentkezett(true);
+                alert("Sikeres bejelentkezés!")
+                update();
             }
-            //bejelentkezési logikát kell majd még létrehozni
             
         } catch (error) {
             console.log('A fetch hívás sikertelen: ', error);

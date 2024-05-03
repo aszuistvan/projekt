@@ -130,10 +130,10 @@ function Regisztracio() {
               </div>
               </div>
               <br />
-              <button type="submit" className="w-full bg-logorozsaszin text-white" onClick={'/'}>Hozz létre egy fiókot</button>
+              <button type="submit" className="w-full bg-logorozsaszin text-white">Hozz létre egy fiókot</button>
             </form>
             <div className="text-center mt-2">  
-              <a href="#" className="text-logorozsaszin">Adatvédelem</a> | <a href="#" className="text-logorozsaszin">Feltételek</a>
+              <a href="/" className="text-logorozsaszin">Adatvédelem</a> | <a href="/" className="text-logorozsaszin">Feltételek</a>
             </div>
             <div className="text-center mt-2 text-logozold">
               <span>Már van regisztrált fiókod? <a href="/bejelentkezes" className="text-logorozsaszin">Bejelentkezés</a></span>
