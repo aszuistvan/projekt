@@ -57,7 +57,7 @@ const felhasznaloBejelentkezes = asyncHandler(async(req,res)=>{
             const felhasznalo = results[0];
             const match = await bcrypt.compare(jelszo, felhasznalo.jelszo);
             if(match){
-                const token = jwt.sign({email_cim, id:felhasznalo.id}, titkosKulcs, {expiresIn: '1h'});
+                const token = jwt.sign({email_cim:email_cim, id:felhasznalo.id}, titkosKulcs, {expiresIn: '1h'});
                 res.json({token});
             } else {
                 res.status(401).json({message: "A megadott jelszó hibás!"});
