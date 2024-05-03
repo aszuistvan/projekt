@@ -56,7 +56,7 @@ function Regisztracio() {
         console.log(formData);
         e.preventDefault();
         adatfelvitel(url, method, formData);
-        navigate('/regisztracio');
+        alert('Sikeres regisztráció! Jelentkezz be!')
     }
 
     return (

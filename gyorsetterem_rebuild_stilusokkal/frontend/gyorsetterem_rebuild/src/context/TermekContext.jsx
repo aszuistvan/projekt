@@ -12,14 +12,14 @@ export const TermekProvider=({children})=>{
     useEffect(()=>{
         fetch(`http://localhost:8000/api/termeklista`)
         .then(res=>res.json())
-        .then(termekek=>{setTermekek(termekek);console.log(termekek)})
+        .then(termekek=>setTermekek(termekek))
         .catch(err=>console.log("A termékek fetchelése nem sikerült, hiba:", err));
     }, [refresh]);
 
     useEffect(()=>{
         fetch(`http://localhost:8000/api/termeklista/italok`)
        .then(res=>res.json())
-       .then(italok=>{setItalok(italok);console.log(italok)})
+       .then(italok=>setItalok(italok))
        .catch(err=>console.log("Az italok fetchelése sikertelen. Hiba:", err))
     }, [refresh]);
 

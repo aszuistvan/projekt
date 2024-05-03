@@ -17,12 +17,12 @@ export const FelhasznaloProvider=({children})=>{
         setFelhasznalo([...felhasznalok, felhasznalo]);
     }
 
-    const bejelentkezes = async (email, jelszo) => {
+    const bejelentkezes = async (email_cim, jelszo) => {
         try {
             const response = await fetch(`http://localhost:8000/api/felhasznalok/bejelentkezes`,{
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({email, jelszo})
+                body: JSON.stringify({email_cim, jelszo})
             });
             if (!response.ok) {
                 throw new Error("HTTP hiba. Státusz:", response.status);

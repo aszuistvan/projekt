@@ -47,9 +47,11 @@ const felhasznaloRegister = (req,res)=>{
 //bejelentkezes fuggveny
 const felhasznaloBejelentkezes = asyncHandler(async(req,res)=>{
     const{email_cim, jelszo} = req.body;
-    conn.query(`SELECT jelszo FROM vevok WHERE email_cim = ?`,
+    console.log(email_cim, jelszo);
+    conn.query(`SELECT id, jelszo FROM vevok WHERE email_cim = LOWER(?)`,
     [email_cim],
     async(err,results) =>{
+        console.log(results);
         if(err){
             console.log("Hiba bejelentkezés közben")
             res.status(500).send(err)
@@ -57,8 +59,8 @@ const felhasznaloBejelentkezes = asyncHandler(async(req,res)=>{
             const felhasznalo = results[0];
             const match = await bcrypt.compare(jelszo, felhasznalo.jelszo);
             if(match){
-                const token = jwt.sign({email_cim:email_cim, id:felhasznalo.id}, titkosKulcs, {expiresIn: '1h'});
-                res.json({token});
+                const token = jwt.sign({id:felhasznalo.id}, titkosKulcs, {expiresIn: '1h'});
+                res.status(200).json({token});
             } else {
                 res.status(401).json({message: "A megadott jelszó hibás!"});
             }
