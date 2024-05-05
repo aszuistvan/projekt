@@ -6,15 +6,15 @@ describe('<Regisztracio />', () => {
     cy.mount(<Regisztracio />)
     
     // adott id-val ellatott mezok kitoltese
-    cy.get('#vnev').type('Vezetéknév')
-    cy.get('#knev').type('Keresztnév')
-    cy.get('#ir_szam').type('1234')
-    cy.get('#telepules_neve').type('Település')
-    cy.get('#kozterulet_neve').type('Közterület')
+    cy.get('#vnev').type('Vig')
+    cy.get('#knev').type('Tamás')
+    cy.get('#ir_szam').type('5675')
+    cy.get('#telepules_neve').type('Telekgerendás')
+    cy.get('#kozterulet_neve').type('Hársfa')
     cy.get('#kozterulet_jellege').type('Utca')
-    cy.get('#hazszam').type('1')
-    cy.get('#tel_szam').type('0612345678')
-    cy.get('#felhasznalo_nev').type('felhasznalo')
+    cy.get('#hazszam').type('31')
+    cy.get('#tel_szam').type('06305204693')
+    cy.get('#felhasznalo_nev').type('tomibogyo')
     cy.get('#email_cim').type('email@example.com')
     cy.get('#jelszo').type('jelszo123')
 
